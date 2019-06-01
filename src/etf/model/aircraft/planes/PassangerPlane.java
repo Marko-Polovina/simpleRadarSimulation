@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class PassangerPlane extends Plane implements PassangerAircraft {
+public class PassangerPlane extends Aircraft implements PassangerAircraft {
     private int passangerSeats;
     private double maxCarryWeight;
 
-    public PassangerPlane(HashMap<String, String> characteristics, String model, String id, int height, long velocity, List<Person> personList, Consumer<Aircraft> movement, int currentX, int currentY, int passangerSeats, double maxCarryWeight) {
-        super(characteristics, model, id, height, velocity, personList, movement, currentX, currentY);
+    public PassangerPlane(HashMap<String, String> characteristics, String model, String id, int height, long velocity, List<Person> personList, boolean friendly, int currentX, int currentY, int passangerSeats, double maxCarryWeight) {
+        super(characteristics, model, id, height, velocity, personList, friendly, currentX, currentY);
         this.passangerSeats = passangerSeats;
         this.maxCarryWeight = maxCarryWeight;
     }
@@ -32,5 +32,9 @@ public class PassangerPlane extends Plane implements PassangerAircraft {
 
     public void setMaxCarryWeight(double maxCarryWeight) {
         this.maxCarryWeight = maxCarryWeight;
+    }
+
+    public String toString(){
+        return ""+this.hashCode()+"#Passanger Plane"+"#passangers!" + this.passangerSeats + "#carryweight!" + this.maxCarryWeight +super.toString();
     }
 }

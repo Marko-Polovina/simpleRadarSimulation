@@ -52,5 +52,5 @@ public class CrashesViewController {
 
 
     //test local git desktop app
-    
+
 }

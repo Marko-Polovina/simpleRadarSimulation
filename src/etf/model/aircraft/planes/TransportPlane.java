@@ -8,17 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class TransportPlane extends Plane implements Transport {
+public class TransportPlane extends Aircraft implements Transport {
     private HashMap<String, Double> Cargo;
     private Double maxCarryWeight;
 
-
-    public TransportPlane(HashMap<String, String> characteristics, String model, String id, int height, long velocity, List<Person> personList, Consumer<Aircraft> movement, int currentX, int currentY) {
-        super(characteristics, model, id, height, velocity, personList, movement, currentX, currentY);
-    }
-
-    public TransportPlane(HashMap<String, String> characteristics, String model, String id, int height, long velocity, List<Person> personList, Consumer<Aircraft> movement, int currentX, int currentY, HashMap<String, Double> cargo, Double maxCarryWeight) {
-        super(characteristics, model, id, height, velocity, personList, movement, currentX, currentY);
+    public TransportPlane(HashMap<String, String> characteristics, String model, String id, int FlightHeight, long velocity, List<Person> personList, boolean friendly, int currentX, int currentY, HashMap<String, Double> cargo, Double maxCarryWeight) {
+        super(characteristics, model, id, FlightHeight, velocity, personList, friendly, currentX, currentY);
         Cargo = cargo;
         this.maxCarryWeight = maxCarryWeight;
     }
@@ -37,5 +32,9 @@ public class TransportPlane extends Plane implements Transport {
 
     public void setMaxCarryWeight(Double maxCarryWeight) {
         this.maxCarryWeight = maxCarryWeight;
+    }
+
+    public String toString(){
+        return ""+this.hashCode()+"#Transport Airplane"+"#maxcarryweight!"+this.maxCarryWeight+super.toString();
     }
 }

@@ -15,6 +15,6 @@ public class Simulation extends Thread{
     @Override
     public void run() {
         /*TODO odradi petlju za spawnanje stvari, ne zaboravi ih i pokrenuti,
-            treba li svaka letjelica znati u kom je zracnom prostoru*/
+            treba li svaka letjelica znati u kom je zracnom prostoru?*/
     }
 }

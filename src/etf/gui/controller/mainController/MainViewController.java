@@ -158,4 +158,6 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initialize();
     }
+
+    //todo odredi gdje ce se ucitavati fajl map.txt i gdje ce se pozivati setLabel metoda
 }

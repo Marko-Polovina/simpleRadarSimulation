@@ -15,9 +15,13 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class DetailsViewControler implements Initializable {
     @FXML
@@ -55,16 +59,32 @@ public class DetailsViewControler implements Initializable {
     }
 
     public void setScrollPane(int i, int j) {
-        /*TODO kupljenje i postavljane stringa ide ovdje, informacije o letjelicama sa polja, trazi matricu i pristupi polju
-                ili jos bolje trazi konkretnu listu letjelica iz tog polja i koristi nju, i i j su koordinate polja
-        */
-        //Ako lista letjelica nije prazna pravice novi tab za svaku od njih, jos nisam odradio modele
-        if(true) {
+        List<String> allAircrafts = null;
+        try {
+            allAircrafts = Files.readAllLines(Paths.get("src/etf/files/map.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        List<String> filteredAircrafts = allAircrafts.stream().filter(x->x.contains("#currX$" + i + "#currY$"+j)).collect(Collectors.toList());
+        if(filteredAircrafts.size() != 0) {
             TabPane tabPane = new TabPane();
-            for (int k = 1; k < 10; k++) {
+            for (int k = 0; k < filteredAircrafts.size(); k++) {
                 Tab tab = new Tab();
-                tab.setText("Naslov " + k + i);
-                tab.setContent(new Label("Nesto " + k + j));
+                String aircraft = filteredAircrafts.get(k);
+                List<String> splitAircraft = Arrays.asList(aircraft.split("#")); //imas sve rastavljeno po #
+                tab.setText(splitAircraft.get(0)); //stavi tip letjelice
+                String content = new String();
+                for(int t = 1; t < splitAircraft.size(); t++){
+                    List<String> hlp = Arrays.asList(splitAircraft.get(t).split("!"));
+                    if(hlp!=null){
+                        for(String h : hlp){
+                            content.concat(h);
+                            content.concat(" ");
+                        }
+                        content.concat("\n");
+                    }
+                }
+                tab.setContent(new Label(content));
                 tabPane.getTabs().add(tab);
             }
             detailsPane.setContent(tabPane);

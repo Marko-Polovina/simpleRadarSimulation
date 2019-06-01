@@ -9,3 +9,8 @@ out/production/simpleRadarSimulation/etf/gui/view/CrashView/ListAllCrashes.fxml
 out/production/simpleRadarSimulation/detailsView/DetailsView.fxml
 out/production/simpleRadarSimulation/CrashView/ListAllCrashes.fxml
 lib/javafx.properties
+out/production/simpleRadarSimulation/map.txt
+out/production/simpleRadarSimulation/etf/files/map.txt
+out/production/simpleRadarSimulation/etf/files/config.properties
+out/production/simpleRadarSimulation/config.properties
+out/production/simpleRadarSimulation/META-INF/simpleRadarSimulation.kotlin_module
