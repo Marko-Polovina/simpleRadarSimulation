@@ -1,5 +1,6 @@
 package etf.model.aircraft;
 
+import etf.fileManagers.ConfigFileManager;
 import etf.model.airspace.Airspace;
 import etf.model.person.Person;
 
@@ -11,10 +12,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Aircraft extends Thread implements Serializable {
+    private boolean crashed = false;
     private HashMap<String,String> characteristics;
     private String model;
     private String Id;
-    private int FlightHeight;
+    private int flightHeight;
     private long velocity;
     private List<Person> personList;
     private boolean friendly;
@@ -26,45 +28,52 @@ public class Aircraft extends Thread implements Serializable {
         Airspace airspace = Airspace.getAirspace();
         writeInMap(); // nakon sto se napravi upisace se u map.txt file
         int moveDirection = setMoveDirection();
-        boolean zabranaLetenja = false;
+        boolean flightBan = false;
         if(moveDirection == 1){
-            while(moveUp(airspace)){ //pri svakom kretanju automatski se updejtuje map.txt, na kraju kretanja se brise iz map.txt
-            zabranaLetenja = checkFlightBan();
-            if(zabranaLetenja)break;
+            while(moveUp(airspace) && !crashed){ //pri svakom kretanju automatski se updejtuje map.txt, na kraju kretanja se brise iz map.tx
+                checkCrash();
+                flightBan = checkFlightBan();
+            if(flightBan)break;
             }
         }else if(moveDirection == 2){
-            while(moveDown(airspace)){
-                zabranaLetenja = checkFlightBan();
-                if(zabranaLetenja)break;
+            while(moveDown(airspace) && !crashed){
+                checkCrash();
+                flightBan = checkFlightBan();
+                if(flightBan)break;
             }
         }else if(moveDirection == 3){
-            while(moveLeft(airspace)){
-                zabranaLetenja = checkFlightBan();
-                if(zabranaLetenja)break;
+            while(moveLeft(airspace) && !crashed){
+                checkCrash();
+                flightBan = checkFlightBan();
+                if(flightBan)break;
             }
         }else if(moveDirection == 4){
-            while(moveRight(airspace)){
-                zabranaLetenja = checkFlightBan();
-                if(zabranaLetenja)break;
+            while(moveRight(airspace) && !crashed){
+                checkCrash();
+                flightBan = checkFlightBan();
+                if(flightBan)break;
             }
         }
-        if(zabranaLetenja){
+        if(flightBan){ //potencijalno mijenja smjer kretanja, update map.txt se nastavlja kroz metode za kretanje
             moveDirection = closestBorder();
             if(moveDirection == 1){
-                while(moveUp(airspace)){}
+                while(moveUp(airspace) && !crashed){checkCrash();}
             }else if(moveDirection == 2){
-                while(moveDown(airspace)){}
+                while(moveDown(airspace) && !crashed){checkCrash();}
             }else if(moveDirection == 3){
-                while(moveLeft(airspace)){ }
+                while(moveLeft(airspace) && !crashed){checkCrash();}
             }else if(moveDirection == 4){
-                while(moveRight(airspace)){}
+                while(moveRight(airspace) && !crashed){checkCrash();}
             }
+        }
+        if(crashed){
+            airspace.removeAircraft(currentX,currentY,this);
+            deleteFromMap();
         }
     }
 
     private boolean checkFlightBan() {
-        //todo provjeri zabranu letenja
-        return false;
+        return ConfigFileManager.checkFlightBan();
     }
 
     /**
@@ -126,7 +135,11 @@ public class Aircraft extends Thread implements Serializable {
         return retVal;
     }
 
-    static long randomSpeed() {
+    public void setCrashed(boolean crashed){
+        this.crashed = crashed;
+    }
+
+    public static long randomSpeed() {
         Random r = new Random();
         return (long)((1 + (2) * r.nextDouble())*1000);
     }
@@ -136,7 +149,7 @@ public class Aircraft extends Thread implements Serializable {
         this.characteristics = characteristics; //mozda ucitati iz fajla, po tipu letjelice
         this.model = model;
         Id = id;
-        this.FlightHeight = FlightHeight;
+        this.flightHeight = FlightHeight;
         this.velocity = velocity;
         this.personList = personList; //mozda ucitati iz fajla
         this.currentX = currentX;
@@ -145,7 +158,7 @@ public class Aircraft extends Thread implements Serializable {
     }
 
     public String toString(){
-        String retVal = "id!" + this.Id +"#model!"+this.model+"#flightheight!"+this.FlightHeight +"#velocity!"+this.velocity+
+        String retVal = "id!" + this.Id +"#model!"+this.model+"#flightheight!"+this.flightHeight +"#velocity!"+this.velocity+
                 "#currX!"+this.currentX+"#currY!"+this.currentY+"#height!"+this.characteristics.get("height")+"#width!" +
                 this.characteristics.get("width");
         return retVal;
@@ -188,12 +201,31 @@ public class Aircraft extends Thread implements Serializable {
     }
 
 
+
+    private synchronized void checkCrash() {
+        Airspace airspace = Airspace.getAirspace();
+        List<Aircraft> aircraftList = airspace.getField(currentX,currentY).getAircrafts();
+        Aircraft crashedAircraft = null;
+        for(Aircraft aircraft : aircraftList){
+            if(!aircraft.equals(this) && this.flightHeight == aircraft.flightHeight){
+                crashedAircraft = aircraft;
+            }
+        }
+        if(crashedAircraft!=null){
+            //todo odradi crash report
+            crashedAircraft.setCrashed(true);
+            this.crashed = true;
+            //sledeci put kad udarena letjelica dodje na red uklonice se iz mape
+        }
+    }
+
+
     /**
      *
      * @param airspace
      * @return true - avion se moze nastaviti kretati, false - avion je stigao do kraja
      */
-    public synchronized boolean moveUp(Airspace airspace){
+    public boolean moveUp(Airspace airspace){
         boolean retVal;
         airspace.removeAircraft(currentX,currentY,this);
         currentY--;
@@ -219,7 +251,7 @@ public class Aircraft extends Thread implements Serializable {
      * @param airspace
      * @return true - avion se moze nastaviti kretati, false - avion je stigao do kraja
      */
-    public synchronized boolean moveDown(Airspace airspace){
+    public boolean moveDown(Airspace airspace){
         boolean retVal;
         airspace.removeAircraft(currentX,currentY,this);
         currentY++;
@@ -245,7 +277,7 @@ public class Aircraft extends Thread implements Serializable {
      * @param airspace
      * @return true - avion se moze nastaviti kretati, false - avion je stigao do kraja
      */
-    public synchronized boolean moveRight(Airspace airspace){
+    public boolean moveRight(Airspace airspace){
         boolean retVal;
         airspace.removeAircraft(currentX,currentY,this);
         currentX++;
@@ -271,7 +303,7 @@ public class Aircraft extends Thread implements Serializable {
      * @param airspace
      * @return true - avion se moze nastaviti kretati, false - avion je stigao do kraja
      */
-    public synchronized boolean moveLeft(Airspace airspace){
+    public boolean moveLeft(Airspace airspace){
         boolean retVal;
         airspace.removeAircraft(currentX,currentY,this);
         currentX--;

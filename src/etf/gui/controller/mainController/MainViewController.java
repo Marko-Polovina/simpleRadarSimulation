@@ -1,5 +1,6 @@
 package etf.gui.controller.mainController;
 
+import etf.fileManagers.ConfigFileManager;
 import etf.gui.controller.crashesViewController.CrashesViewController;
 import etf.gui.controller.detailsController.DetailsViewControler;
 import javafx.application.Platform;
@@ -99,6 +100,7 @@ public class MainViewController implements Initializable {
         }else{
             FlightBanEnforcement = false;
         }
+        ConfigFileManager.updateFlightBan(FlightBanEnforcement);
     }
 
     /**
@@ -160,4 +162,5 @@ public class MainViewController implements Initializable {
     }
 
     //todo odredi gdje ce se ucitavati fajl map.txt i gdje ce se pozivati setLabel metoda
+    //todo dinamicki postavljati velicinu grida prema parametrima iz config fajla n - sirina,m - visina
 }

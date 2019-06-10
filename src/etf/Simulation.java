@@ -7,7 +7,8 @@ public class Simulation extends Thread{
 
     public Simulation(Airspace airspace){
         /*TODO otvori i procitaj sve config fajlove, bice ih nekoliko msm
-            sto za info o tipu letjelice sto za kontrolu toka izvrsavanja
+            sto za info o tipu letjelice sto za kontrolu toka izvrsavanja,
+            mozda da za svaki tip letjelice napravis svoj file sa karakteristikama
         */
         this.airspace = airspace;
     }
@@ -15,6 +16,8 @@ public class Simulation extends Thread{
     @Override
     public void run() {
         /*TODO odradi petlju za spawnanje stvari, ne zaboravi ih i pokrenuti,
-            treba li svaka letjelica znati u kom je zracnom prostoru?*/
+            treba li svaka letjelica znati u kom je zracnom prostoru?
+             - za sad ne
+        */
     }
 }
