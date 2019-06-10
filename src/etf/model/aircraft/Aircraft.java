@@ -55,7 +55,7 @@ public class Aircraft extends Thread implements Serializable {
             }
         }
         if(flightBan){ //potencijalno mijenja smjer kretanja, update map.txt se nastavlja kroz metode za kretanje
-            moveDirection = closestBorder();
+            moveDirection = closestBorder(moveDirection);
             if(moveDirection == 1){
                 while(moveUp(airspace) && !crashed){checkCrash();}
             }else if(moveDirection == 2){
@@ -69,6 +69,11 @@ public class Aircraft extends Thread implements Serializable {
         if(crashed){
             airspace.removeAircraft(currentX,currentY,this);
             deleteFromMap();
+            if(!friendly){
+                //todo zabiljezi da je oboren a ne sudaren
+            }else{
+                //todo ako ne postoji zapis za ovaj sudar obavi ga(moguce da je "zapisan" od strane drugog ucesnika u sudaru)
+            }
         }
     }
 
@@ -100,8 +105,12 @@ public class Aircraft extends Thread implements Serializable {
     /**
      *
      * @return 0-default, 1-up, 2-down, 3-left, 4-right
+     * @param currentMoveDirection u slucaju da se letjelica treba okrenuti nazad ne moze, treba polukruzno
      */
-    private int closestBorder() {
+    private int closestBorder(int currentMoveDirection) {
+        /*todo ukoliko letjelica treba krenuti unazad odradi polukruzno kretanje ovdje
+             i onda se vrati u run sa novim koordinatama i pozicijom u zracnom prostoru
+        */
         int retVal = 0;
 
         int distanceFromRight = 99 - currentX;
@@ -111,28 +120,69 @@ public class Aircraft extends Thread implements Serializable {
 
         if(distanceFromUp < distanceFromDown){
             retVal = 1;
+            if(currentMoveDirection == 2){
+                turnAround(retVal, currentMoveDirection);
+            }
         }
         else{
             retVal = 2;
+            if(currentMoveDirection == 1){
+                turnAround(retVal, currentMoveDirection);
+            }
         }
         if(retVal == 1){
             if(distanceFromRight < distanceFromUp && distanceFromRight < distanceFromLeft){
                 retVal = 4;
+                if(currentMoveDirection == 3){
+                    turnAround(retVal, currentMoveDirection);
+                }
             }
             if(distanceFromLeft < distanceFromUp && distanceFromLeft < distanceFromRight){
                 retVal = 3;
+                if(currentMoveDirection == 4){
+                    turnAround(retVal, currentMoveDirection);
+                }
             }
         }
         if(retVal == 2){
             if(distanceFromRight < distanceFromDown && distanceFromRight < distanceFromLeft){
                 retVal = 4;
+                if(currentMoveDirection == 3){
+                    turnAround(retVal, currentMoveDirection);
+                }
             }
             if(distanceFromLeft < distanceFromDown && distanceFromLeft < distanceFromRight){
                 retVal = 3;
+                if(currentMoveDirection == 4){
+                    turnAround(retVal, currentMoveDirection);
+                }
             }
         }
 
         return retVal;
+    }
+
+    private void turnAround(int retVal, int currentMoveDirection) {
+        //ako ide gore ili dole i treba promjeniti smjer za 180 prvo ce se pomjeriti po mogucnosti lijevo sem ako je uz lijevi rub
+        if((retVal == 1 && currentMoveDirection == 2) || (retVal == 2 && currentMoveDirection == 1)){
+            if(currentY==0){
+                moveRight(Airspace.getAirspace());
+                checkCrash();
+            }else{
+                moveLeft(Airspace.getAirspace());
+                checkCrash();
+            }
+        }
+        //ako ide lijevo ili desno i treba promjeniti smjer za 180 prvo ce se pomjeriti po mogucnosti gore sem ako je uz gornji rub
+        else if((retVal ==  3 && currentMoveDirection == 4) || (retVal == 4 && currentMoveDirection == 3)){
+            if(currentX==0){
+                moveDown(Airspace.getAirspace());
+                checkCrash();
+            }else{
+                moveUp(Airspace.getAirspace());
+                checkCrash();
+            }
+        }
     }
 
     public void setCrashed(boolean crashed){
@@ -212,7 +262,6 @@ public class Aircraft extends Thread implements Serializable {
             }
         }
         if(crashedAircraft!=null){
-            //todo odradi crash report
             crashedAircraft.setCrashed(true);
             this.crashed = true;
             //sledeci put kad udarena letjelica dodje na red uklonice se iz mape
