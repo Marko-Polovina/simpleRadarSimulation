@@ -1,6 +1,7 @@
 package etf.gui.main;
 
 import etf.Simulation;
+import etf.customLogger.CustomLogger;
 import etf.gui.controller.mainController.MainViewController;
 import etf.model.airspace.Airspace;
 import javafx.application.Application;
@@ -19,6 +20,8 @@ import java.net.MalformedURLException;
 //treba napraviti fajl iz koga ce ucitavati pozicije aviona
 //enum za tip letjelice ili samo keyword iz teksta koja se kopira u boju i skracenicu?
 public class MainApp extends Application {
+    CustomLogger cl = new CustomLogger(this);
+
 
     public static void main(String[] args) {
         Airspace airspace = Airspace.getAirspace();
@@ -34,12 +37,14 @@ public class MainApp extends Application {
             fxmlLoader = new FXMLLoader(new File("src\\etf\\gui\\view\\mainView\\MainView.fxml").toURI().toURL());
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         AnchorPane pane = null;
         try {
             pane = fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         Scene mainScene = new Scene(pane);
         primaryStage.setScene(mainScene);

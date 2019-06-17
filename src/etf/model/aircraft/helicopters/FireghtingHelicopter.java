@@ -7,7 +7,7 @@ import etf.model.person.Person;
 import java.util.HashMap;
 import java.util.List;
 
-public class FireghtingHelicopter extends Aircraft implements Firefighting {
+public class FireghtingHelicopter extends Helicopter implements Firefighting {
     private int waterAmount;
 
     public FireghtingHelicopter(HashMap<String, String> characteristics, String model, String id, int height, long velocity, List<Person> personList, boolean friendly, int currentX, int currentY, int waterAmount) {

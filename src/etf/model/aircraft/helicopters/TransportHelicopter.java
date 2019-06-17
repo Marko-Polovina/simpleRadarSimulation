@@ -1,13 +1,15 @@
 package etf.model.aircraft.helicopters;
 
 import etf.model.aircraft.Aircraft;
+import etf.model.aircraft.PassangerAircraft;
+import etf.model.aircraft.Transport;
 import etf.model.person.Person;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class TransportHelicopter extends Aircraft {
+public class TransportHelicopter extends Helicopter implements Transport {
     private int carryWeight;
 
     public TransportHelicopter(HashMap<String, String> characteristics, String model, String id, int height, long velocity, List<Person> personList, boolean friendly, int currentX, int currentY, int carryWeight) {

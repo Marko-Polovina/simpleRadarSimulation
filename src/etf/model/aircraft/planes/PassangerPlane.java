@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class PassangerPlane extends Aircraft implements PassangerAircraft {
+public class PassangerPlane extends Plane implements PassangerAircraft {
     private int passangerSeats;
     private double maxCarryWeight;
 

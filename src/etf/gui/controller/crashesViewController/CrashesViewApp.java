@@ -1,5 +1,6 @@
 package etf.gui.controller.crashesViewController;
 
+import etf.customLogger.CustomLogger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,7 +19,7 @@ import java.net.MalformedURLException;
  *  dodace se u fajl na drugom mjestu i kreirace se alert sa potrebnim informacijama
  */
 public class CrashesViewApp extends Application {
-
+    CustomLogger cl = new CustomLogger(this);
     public static void main(String[] args) {
         launch(args);
     }
@@ -34,11 +35,13 @@ public class CrashesViewApp extends Application {
             fxmlLoader = new FXMLLoader(new File("src\\etf\\gui\\view\\CrashView\\ListAllCrashes.fxml").toURI().toURL());
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         try {
             cvc.setAnchorPane(fxmlLoader.load());
         } catch (IOException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         cvc.setScrollPane((ScrollPane)cvc.getAnchorPane().getChildren().get(0));
         cvc.setCrashListings((Label)cvc.getScrollPane().getContent());

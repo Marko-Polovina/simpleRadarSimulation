@@ -1,6 +1,8 @@
 package etf.model.aircraft;
 
+import etf.customLogger.CustomLogger;
 import etf.fileManagers.ConfigFileManager;
+import etf.fileManagers.CrashManager;
 import etf.model.airspace.Airspace;
 import etf.model.person.Person;
 
@@ -8,10 +10,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Aircraft extends Thread implements Serializable {
+    CustomLogger cl = new CustomLogger(this);
     private boolean crashed = false;
     private HashMap<String,String> characteristics;
     private String model;
@@ -25,6 +29,7 @@ public class Aircraft extends Thread implements Serializable {
 
     @Override
     public void run() {
+        ConfigFileManager cnf = new ConfigFileManager();
         Airspace airspace = Airspace.getAirspace();
         writeInMap(); // nakon sto se napravi upisace se u map.txt file
         int moveDirection = setMoveDirection();
@@ -66,15 +71,18 @@ public class Aircraft extends Thread implements Serializable {
                 while(moveRight(airspace) && !crashed){checkCrash();}
             }
         }
-        if(crashed){
-            airspace.removeAircraft(currentX,currentY,this);
+        if(crashed) {
+            airspace.removeAircraft(currentX, currentY, this);
             deleteFromMap();
-            if(!friendly){
-                //todo zabiljezi da je oboren a ne sudaren
-            }else{
-                //todo ako ne postoji zapis za ovaj sudar obavi ga(moguce da je "zapisan" od strane drugog ucesnika u sudaru)
-            }
         }
+    }
+
+    public boolean isFriendly() {
+        return friendly;
+    }
+
+    public void setFriendly(boolean friendly) {
+        this.friendly = friendly;
     }
 
     private boolean checkFlightBan() {
@@ -221,6 +229,7 @@ public class Aircraft extends Thread implements Serializable {
             Files.write(Paths.get("etf/files/map.txt"), allAircrafts);
         } catch (IOException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
     }
 
@@ -231,6 +240,7 @@ public class Aircraft extends Thread implements Serializable {
             Files.write(Paths.get("src/etf/files/map.txt"),allAircrafts);
         } catch (IOException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
     }
 
@@ -247,12 +257,13 @@ public class Aircraft extends Thread implements Serializable {
             Files.write(Paths.get("src/etf/files/map.txt"),allAircrafts);
         } catch (IOException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
     }
 
 
 
-    private synchronized void checkCrash() {
+    private void checkCrash() {
         Airspace airspace = Airspace.getAirspace();
         List<Aircraft> aircraftList = airspace.getField(currentX,currentY).getAircrafts();
         Aircraft crashedAircraft = null;
@@ -264,7 +275,10 @@ public class Aircraft extends Thread implements Serializable {
         if(crashedAircraft!=null){
             crashedAircraft.setCrashed(true);
             this.crashed = true;
-            //sledeci put kad udarena letjelica dodje na red uklonice se iz mape
+            String details = "First Aircraft : " + this.getId() + " Second Aircraft : " + crashedAircraft.getId();
+            String time = LocalDateTime.now().toString();
+            String position = "X : " + this.currentY + " Y : " + this.currentY;
+            CrashManager cm = new CrashManager(details,time,position); // upisuje sudar odmah odmah
         }
     }
 
@@ -291,6 +305,7 @@ public class Aircraft extends Thread implements Serializable {
             sleep(velocity);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         return retVal;
     }
@@ -304,7 +319,7 @@ public class Aircraft extends Thread implements Serializable {
         boolean retVal;
         airspace.removeAircraft(currentX,currentY,this);
         currentY++;
-        if(currentY<100){
+        if(currentY<ConfigFileManager.Y_DIMENSION){
             airspace.addAircraft(currentX,currentY,this);
             updateInMap();
             retVal = true;
@@ -317,6 +332,7 @@ public class Aircraft extends Thread implements Serializable {
             sleep(velocity);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         return retVal;
     }
@@ -330,7 +346,7 @@ public class Aircraft extends Thread implements Serializable {
         boolean retVal;
         airspace.removeAircraft(currentX,currentY,this);
         currentX++;
-        if(currentX<100){
+        if(currentX<ConfigFileManager.X_DIMENSION){
             airspace.addAircraft(currentX,currentY,this);
             updateInMap();
             retVal = true;
@@ -343,6 +359,7 @@ public class Aircraft extends Thread implements Serializable {
             sleep(velocity);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         return retVal;
     }
@@ -368,7 +385,7 @@ public class Aircraft extends Thread implements Serializable {
         try {
             sleep(velocity);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         return retVal;
     }

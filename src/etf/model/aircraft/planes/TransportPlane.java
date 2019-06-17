@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class TransportPlane extends Aircraft implements Transport {
+public class TransportPlane extends Plane implements Transport {
     private HashMap<String, Double> Cargo;
     private Double maxCarryWeight;
 

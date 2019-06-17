@@ -1,5 +1,6 @@
 package etf.gui.controller.detailsController;
 
+import etf.customLogger.CustomLogger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +30,7 @@ public class DetailsViewControler implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
+    private CustomLogger cl = new CustomLogger(this);
 
     public AnchorPane getAnchorPane() {
         return anchorPane;
@@ -64,8 +66,9 @@ public class DetailsViewControler implements Initializable {
             allAircrafts = Files.readAllLines(Paths.get("src/etf/files/map.txt"));
         } catch (IOException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
-        List<String> filteredAircrafts = allAircrafts.stream().filter(x->x.contains("#currX$" + i + "#currY$"+j)).collect(Collectors.toList());
+        List<String> filteredAircrafts = allAircrafts.stream().filter(x->x.contains("#currX!" + i + "#currY!"+j)).collect(Collectors.toList());
         if(filteredAircrafts.size() != 0) {
             TabPane tabPane = new TabPane();
             for (int k = 0; k < filteredAircrafts.size(); k++) {

@@ -10,8 +10,10 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
@@ -20,8 +22,6 @@ import java.util.ResourceBundle;
 
 public class MainViewController implements Initializable {
     private static boolean FlightBanEnforcement = false;
-
-    public boolean getFlightBanEnforment(){return FlightBanEnforcement;}
 
     @FXML
     private GridPane FlightArea;
@@ -78,22 +78,22 @@ public class MainViewController implements Initializable {
      * Postavlja funkcionalnost toggle-a za zabranu leta
      */
     public void initialize(){
-        ArrayList<Label> labelList = new ArrayList<>();
-        for(int i = 0; i < 100; i++)
-            for(int j = 0; j < 100; j++)
-                FlightArea.add(new Pane(new Label("")), i, j);
-        for(Node field : FlightArea.getChildren()){
-            onGridPanePositionClick(field);
-        }
+        ConfigFileManager cnf = new ConfigFileManager();
+        FlightArea.setGridLinesVisible(true);
+        for(int i = 0; i < ConfigFileManager.X_DIMENSION; i++)
+            for(int j = 0; j < ConfigFileManager.Y_DIMENSION; j++) {
+                Pane pane = new Pane(new Label(""));
+                pane.setPrefHeight(50);
+                pane.setPrefWidth(50);
+                onGridPanePositionClick(pane);
+                FlightArea.add(pane, i, j);
+            }*
         ExitBtn.setOnAction(x -> Platform.exit());
         CrashDetailsBtn.setOnAction(x -> new CrashesViewController().browseCrashes());
         FlightBan.setOnAction(x -> toggleFlightBan());
     }
 
-    /**
-     * Odradi let da prilikom normalnog leta provjerava da li je let dozvoljen, a prilikom prinudnog izlaska
-     * ne provjerava zabranu vec podrazumjeva da mora izaci iz prostora leta
-     */
+
     private synchronized void toggleFlightBan(){
         if(FlightBan.isSelected()){
             FlightBanEnforcement = true;
@@ -112,9 +112,11 @@ public class MainViewController implements Initializable {
      */
     public synchronized void setLabel(String text, Color color, int column, int row){
         for(Node field : FlightArea.getChildren()){
-            if(field instanceof Pane && GridPane.getRowIndex(field) == row && GridPane.getColumnIndex(field) == column)
+            if(field instanceof Pane
+                    && GridPane.getRowIndex(field) == row
+                    && GridPane.getColumnIndex(field) == column)
             {
-                Pane pane = (Pane)FlightArea.getChildren().get(column*100 + row + 1);
+                Pane pane = (Pane)FlightArea.getChildren().get(column*ConfigFileManager.X_DIMENSION + row + 1);
                 Label extLabel = (Label)pane.getChildren().get(0);
                 extLabel.setText(text);
                 extLabel.setTextFill(color);
@@ -132,7 +134,7 @@ public class MainViewController implements Initializable {
         for(Node field : FlightArea.getChildren()){
             if(field instanceof Pane && GridPane.getRowIndex(field) == row && GridPane.getColumnIndex(field) == column)
             {
-                Pane pane = (Pane)FlightArea.getChildren().get(column*100 + row + 1);
+                Pane pane = (Pane)FlightArea.getChildren().get(column*ConfigFileManager.X_DIMENSION + row + 1);
                 Label extLabel = (Label)pane.getChildren().get(0);
                 extLabel.setVisible(false);
                 extLabel.setText("");
@@ -162,5 +164,4 @@ public class MainViewController implements Initializable {
     }
 
     //todo odredi gdje ce se ucitavati fajl map.txt i gdje ce se pozivati setLabel metoda
-    //todo dinamicki postavljati velicinu grida prema parametrima iz config fajla n - sirina,m - visina
 }

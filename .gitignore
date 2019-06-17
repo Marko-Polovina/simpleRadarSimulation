@@ -14,3 +14,5 @@ out/production/simpleRadarSimulation/etf/files/map.txt
 out/production/simpleRadarSimulation/etf/files/config.properties
 out/production/simpleRadarSimulation/config.properties
 out/production/simpleRadarSimulation/META-INF/simpleRadarSimulation.kotlin_module
+out/production/simpleRadarSimulation/etf/files/alert/proba.txt
+out/production/simpleRadarSimulation/alert/proba.txt

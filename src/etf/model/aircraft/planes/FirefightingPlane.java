@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class FirefightingPlane extends Aircraft implements Firefighting {
+public class FirefightingPlane extends Plane implements Firefighting {
     private int waterAmount;
 
     public FirefightingPlane(HashMap<String, String> characteristics, String model, String id, int height, long velocity, List<Person> personList, boolean friendly, int currentX, int currentY, int waterAmount) {

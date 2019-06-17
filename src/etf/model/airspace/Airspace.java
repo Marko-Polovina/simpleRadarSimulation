@@ -1,6 +1,7 @@
 package etf.model.airspace;
 
 import etf.model.aircraft.Aircraft;
+import etf.model.rockets.Rockets;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,12 @@ public class Airspace {
 
     public synchronized void addAircraft(int x, int y, Aircraft aircraft){
         field[x][y].addAircraft(aircraft);
+        if(!aircraft.isFriendly()){
+            //todo notify simulaciju o ulasku strane letjelice u prostor
+        }
     }
 
+    public void removeRocket(int currentX, int currentY, Rockets rockets) {
+        System.out.println("Uklonio raketu");
+    }
 }

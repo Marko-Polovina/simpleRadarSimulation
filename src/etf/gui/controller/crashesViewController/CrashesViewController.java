@@ -1,10 +1,17 @@
 package etf.gui.controller.crashesViewController;
 
+import etf.fileManagers.CrashManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CrashesViewController {
     @FXML
@@ -45,12 +52,25 @@ public class CrashesViewController {
     }
 
     public void setLabel(){
-        String detalji = null;
-        //TODO ucitaj datoteku i formatiraj po potrebi
-        crashListings.setText(detalji);
+        List<List<String>> detalji = new ArrayList<>();
+        detalji = CrashManager.readCrashes();
+        if(detalji.size() == 0){
+            crashListings.setText("Nema arhiviranih sudara.");
+        }else{
+            TabPane tabPane = new TabPane();
+            for (int k = 0; k < detalji.size(); k++) {
+                Tab tab = new Tab();
+                List<String> crash = detalji.get(k);
+                String crashDetails = new String();
+                for(String s : crash){
+                    crashDetails = crashDetails + "" + s + "\n";
+                }
+                tab.setText(crash.get(0));
+                tab.setContent(new Label(crashDetails));
+                tabPane.getTabs().add(tab);
+            }
+            scrollPane.setContent(tabPane);
+        }
     }
-
-
-    //test local git desktop app
 
 }

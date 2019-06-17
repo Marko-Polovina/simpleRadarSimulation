@@ -1,5 +1,6 @@
 package etf.gui.controller.detailsController;
 
+import etf.customLogger.CustomLogger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,6 +19,7 @@ import java.net.MalformedURLException;
  * Kreira prozor za prikaz detalja o letjelicama
  */
 public class DetailsViewApp extends Application {
+    CustomLogger cl = new CustomLogger(this);
 
     public static void main(String[] args) {
         launch(args);
@@ -33,11 +35,13 @@ public class DetailsViewApp extends Application {
             fxmlLoader = new FXMLLoader(new File("src\\etf\\gui\\view\\DetailsView\\DetailsView.fxml").toURI().toURL());
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         try {
             dvc.setAnchorPane(fxmlLoader.load());
         } catch (IOException e) {
             e.printStackTrace();
+            cl.logException(e.getMessage(),e);
         }
         dvc.setDetailsPane((ScrollPane)dvc.getAnchorPane().getChildren().get(0));
         dvc.setScrollPane(i,j);
