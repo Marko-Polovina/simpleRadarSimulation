@@ -1,6 +1,8 @@
 package etf.gui.controller.detailsController;
 
 import etf.customLogger.CustomLogger;
+import etf.gui.controller.mainController.MainViewController;
+import etf.mainClass.Main;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +34,12 @@ public class DetailsViewControler implements Initializable {
     private AnchorPane anchorPane;
     private CustomLogger cl = new CustomLogger(this);
 
+    MainViewController mvc;
+
+    public void setMvc(MainViewController mvc) {
+        this.mvc = mvc;
+    }
+
     public AnchorPane getAnchorPane() {
         return anchorPane;
     }
@@ -61,13 +69,7 @@ public class DetailsViewControler implements Initializable {
     }
 
     public void setScrollPane(int i, int j) {
-        List<String> allAircrafts = null;
-        try {
-            allAircrafts = Files.readAllLines(Paths.get("src/etf/files/map.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-            cl.logException(e.getMessage(),e);
-        }
+        List<String> allAircrafts = allAircrafts = mvc.getMap();
         List<String> filteredAircrafts = allAircrafts.stream().filter(x->x.contains("#currX!" + i + "#currY!"+j)).collect(Collectors.toList());
         if(filteredAircrafts.size() != 0) {
             TabPane tabPane = new TabPane();
@@ -81,13 +83,13 @@ public class DetailsViewControler implements Initializable {
                     List<String> hlp = Arrays.asList(splitAircraft.get(t).split("!"));
                     if(hlp!=null){
                         for(String h : hlp){
-                            content.concat(h);
-                            content.concat(" ");
+                            content+=(h + " \n");
                         }
-                        content.concat("\n");
                     }
                 }
-                tab.setContent(new Label(content));
+                Label label = new Label();
+                label.setText(content);
+                tab.setContent(label);
                 tabPane.getTabs().add(tab);
             }
             detailsPane.setContent(tabPane);

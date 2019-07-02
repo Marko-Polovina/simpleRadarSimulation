@@ -12,4 +12,5 @@ public class ColorCodes {
     public static Color PUTNICKI_AVION = Color.BROWN;
     public static Color PUTNICKI_HELIKOPTER = Color.CADETBLUE;
     public static Color PROTIV_POZARNI_HELIKOPTER = Color.DARKBLUE;
+    public static Color BOMBARDER = Color.GREEN;
 }

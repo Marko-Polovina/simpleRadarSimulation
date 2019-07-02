@@ -1,14 +1,12 @@
 package etf.gui.main;
 
-import etf.Simulation;
+import etf.simulation.Simulation;
 import etf.customLogger.CustomLogger;
-import etf.gui.controller.mainController.MainViewController;
 import etf.model.airspace.Airspace;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;

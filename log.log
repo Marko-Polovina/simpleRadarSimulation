@@ -304,7 +304,7 @@
       <line>41</line>
     </frame>
     <frame>
-      <class>etf.gui.controller.crashesViewController.CrashesViewController</class>
+      <class>etf.gui.controller.crashesViewController.EventsCrashesViewController</class>
       <method>browseCrashes</method>
       <line>51</line>
     </frame>
@@ -620,7 +620,7 @@
       <line>41</line>
     </frame>
     <frame>
-      <class>etf.gui.controller.crashesViewController.CrashesViewController</class>
+      <class>etf.gui.controller.crashesViewController.EventsCrashesViewController</class>
       <method>browseCrashes</method>
       <line>51</line>
     </frame>
@@ -906,7 +906,7 @@
       <line>41</line>
     </frame>
     <frame>
-      <class>etf.gui.controller.crashesViewController.CrashesViewController</class>
+      <class>etf.gui.controller.crashesViewController.EventsCrashesViewController</class>
       <method>browseCrashes</method>
       <line>51</line>
     </frame>
@@ -2810,6 +2810,1841 @@
     </frame>
   </exception>
 </record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-06-21T10:08:35.701366800Z</date>
+  <millis>1561111715701</millis>
+  <nanos>366800</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.model.aircraft.planes.TransportPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>20</thread>
+  <message>etf\files\map.txt</message>
+  <exception>
+    <message>java.nio.file.NoSuchFileException: etf\files\map.txt</message>
+    <frame>
+      <class>sun.nio.fs.WindowsException</class>
+      <method>translateToIOException</method>
+      <line>85</line>
+    </frame>
+    <frame>
+      <class>sun.nio.fs.WindowsException</class>
+      <method>rethrowAsIOException</method>
+      <line>103</line>
+    </frame>
+    <frame>
+      <class>sun.nio.fs.WindowsException</class>
+      <method>rethrowAsIOException</method>
+      <line>108</line>
+    </frame>
+    <frame>
+      <class>sun.nio.fs.WindowsFileSystemProvider</class>
+      <method>newByteChannel</method>
+      <line>235</line>
+    </frame>
+    <frame>
+      <class>java.nio.file.spi.FileSystemProvider</class>
+      <method>newOutputStream</method>
+      <line>478</line>
+    </frame>
+    <frame>
+      <class>java.nio.file.Files</class>
+      <method>newOutputStream</method>
+      <line>222</line>
+    </frame>
+    <frame>
+      <class>java.nio.file.Files</class>
+      <method>write</method>
+      <line>3562</line>
+    </frame>
+    <frame>
+      <class>java.nio.file.Files</class>
+      <method>write</method>
+      <line>3613</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>writeInMap</method>
+      <line>229</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>34</line>
+    </frame>
+  </exception>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-06-21T10:11:32.715576100Z</date>
+  <millis>1561111892715</millis>
+  <nanos>576100</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.model.aircraft.planes.TransportPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>20</thread>
+  <message>etf\files\map.txt</message>
+  <exception>
+    <message>java.nio.file.NoSuchFileException: etf\files\map.txt</message>
+    <frame>
+      <class>sun.nio.fs.WindowsException</class>
+      <method>translateToIOException</method>
+      <line>85</line>
+    </frame>
+    <frame>
+      <class>sun.nio.fs.WindowsException</class>
+      <method>rethrowAsIOException</method>
+      <line>103</line>
+    </frame>
+    <frame>
+      <class>sun.nio.fs.WindowsException</class>
+      <method>rethrowAsIOException</method>
+      <line>108</line>
+    </frame>
+    <frame>
+      <class>sun.nio.fs.WindowsFileSystemProvider</class>
+      <method>newByteChannel</method>
+      <line>235</line>
+    </frame>
+    <frame>
+      <class>java.nio.file.spi.FileSystemProvider</class>
+      <method>newOutputStream</method>
+      <line>478</line>
+    </frame>
+    <frame>
+      <class>java.nio.file.Files</class>
+      <method>newOutputStream</method>
+      <line>222</line>
+    </frame>
+    <frame>
+      <class>java.nio.file.Files</class>
+      <method>write</method>
+      <line>3562</line>
+    </frame>
+    <frame>
+      <class>java.nio.file.Files</class>
+      <method>write</method>
+      <line>3613</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>writeInMap</method>
+      <line>229</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>34</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-01T14:38:02.934663500Z</date>
+  <millis>1561991882934</millis>
+  <nanos>663500</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.model.aircraft.helicopters.FireghtingHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>34</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>330</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveLeft</method>
+      <line>466</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>102</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:38:02.934663500Z</date>
+  <millis>1561991882934</millis>
+  <nanos>663500</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.model.aircraft.helicopters.FireghtingHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>34</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>330</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveLeft</method>
+      <line>466</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>102</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:38:02.934663500Z</date>
+  <millis>1561991882934</millis>
+  <nanos>663500</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.model.aircraft.helicopters.FireghtingHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>34</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>330</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveLeft</method>
+      <line>466</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>102</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:38:55.377344100Z</date>
+  <millis>1561991935377</millis>
+  <nanos>344100</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.helicopters.FireghtingHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>330</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveLeft</method>
+      <line>466</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>102</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:38:55.377344100Z</date>
+  <millis>1561991935377</millis>
+  <nanos>344100</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.helicopters.FireghtingHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>330</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveLeft</method>
+      <line>466</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>102</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:38:55.377344100Z</date>
+  <millis>1561991935377</millis>
+  <nanos>344100</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.helicopters.FireghtingHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>330</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveLeft</method>
+      <line>466</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>102</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:38:55.377344100Z</date>
+  <millis>1561991935377</millis>
+  <nanos>344100</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.helicopters.FireghtingHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>330</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveLeft</method>
+      <line>466</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>102</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-01T14:40:53.599027400Z</date>
+  <millis>1561992053599</millis>
+  <nanos>27400</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.model.aircraft.helicopters.TransportHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>35</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:40:53.599027400Z</date>
+  <millis>1561992053599</millis>
+  <nanos>27400</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.model.aircraft.helicopters.TransportHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>35</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:40:53.599027400Z</date>
+  <millis>1561992053599</millis>
+  <nanos>27400</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.model.aircraft.helicopters.TransportHelicopter</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>35</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:41:39.278674800Z</date>
+  <millis>1561992099278</millis>
+  <nanos>674800</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.planes.PassangerPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:41:39.278674800Z</date>
+  <millis>1561992099278</millis>
+  <nanos>674800</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.planes.PassangerPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:41:39.278674800Z</date>
+  <millis>1561992099278</millis>
+  <nanos>674800</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.planes.PassangerPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:41:39.278674800Z</date>
+  <millis>1561992099278</millis>
+  <nanos>674800</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.planes.PassangerPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:41:39.278674800Z</date>
+  <millis>1561992099278</millis>
+  <nanos>674800</nanos>
+  <sequence>1</sequence>
+  <logger>class etf.model.aircraft.planes.PassangerPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>44</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:42:38.505581700Z</date>
+  <millis>1561992158505</millis>
+  <nanos>581700</nanos>
+  <sequence>2</sequence>
+  <logger>class etf.model.aircraft.planes.FirefightingPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>56</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:42:38.505581700Z</date>
+  <millis>1561992158505</millis>
+  <nanos>581700</nanos>
+  <sequence>2</sequence>
+  <logger>class etf.model.aircraft.planes.FirefightingPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>56</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:42:38.505581700Z</date>
+  <millis>1561992158505</millis>
+  <nanos>581700</nanos>
+  <sequence>2</sequence>
+  <logger>class etf.model.aircraft.planes.FirefightingPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>56</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveUp</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>90</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:43:23.301004500Z</date>
+  <millis>1561992203301</millis>
+  <nanos>4500</nanos>
+  <sequence>3</sequence>
+  <logger>class etf.model.aircraft.planes.FirefightingPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>64</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveDown</method>
+      <line>417</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:43:23.301004500Z</date>
+  <millis>1561992203301</millis>
+  <nanos>4500</nanos>
+  <sequence>3</sequence>
+  <logger>class etf.model.aircraft.planes.FirefightingPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>64</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveDown</method>
+      <line>417</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:43:23.301004500Z</date>
+  <millis>1561992203301</millis>
+  <nanos>4500</nanos>
+  <sequence>3</sequence>
+  <logger>class etf.model.aircraft.planes.FirefightingPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>64</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveDown</method>
+      <line>417</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2019-07-01T14:43:23.301004500Z</date>
+  <millis>1561992203301</millis>
+  <nanos>4500</nanos>
+  <sequence>3</sequence>
+  <logger>class etf.model.aircraft.planes.FirefightingPlane</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>64</thread>
+  <message>Index 0 out of bounds for length 0</message>
+  <exception>
+    <message>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0</message>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBounds</method>
+      <line>64</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>outOfBoundsCheckIndex</method>
+      <line>70</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.util.Preconditions</class>
+      <method>checkIndex</method>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>java.util.Objects</class>
+      <method>checkIndex</method>
+      <line>372</line>
+    </frame>
+    <frame>
+      <class>java.util.ArrayList</class>
+      <method>get</method>
+      <line>458</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>removeFromList</method>
+      <line>332</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>updateInMap</method>
+      <line>315</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>moveDown</method>
+      <line>417</line>
+    </frame>
+    <frame>
+      <class>etf.model.aircraft.Aircraft</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-02T09:27:13.311797400Z</date>
+  <millis>1562059633311</millis>
+  <nanos>797400</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.controller.detailsController.DetailsViewApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/DetailsView/DetailsView.fxml:6
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/DetailsView/DetailsView.fxml:6
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>access$700</method>
+      <line>105</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ValueElement</class>
+      <method>processAttribute</method>
+      <line>941</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$InstanceDeclarationElement</class>
+      <method>processAttribute</method>
+      <line>980</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$Element</class>
+      <method>processStartElement</method>
+      <line>227</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ValueElement</class>
+      <method>processStartElement</method>
+      <line>752</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>processStartElement</method>
+      <line>2722</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2552</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.controller.detailsController.DetailsViewApp</class>
+      <method>setTabsandStart</method>
+      <line>41</line>
+    </frame>
+    <frame>
+      <class>etf.gui.controller.detailsController.DetailsViewControler</class>
+      <method>showAircraftDetails</method>
+      <line>66</line>
+    </frame>
+    <frame>
+      <class>etf.gui.controller.mainController.MainViewController</class>
+      <method>lambda$onGridPanePositionClick$5</method>
+      <line>230</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>238</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>54</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ClickGenerator</class>
+      <method>postProcess</method>
+      <line>3564</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ClickGenerator</class>
+      <method>access$8200</method>
+      <line>3492</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>process</method>
+      <line>3860</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>access$1200</method>
+      <line>3579</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene</class>
+      <method>processMouseEvent</method>
+      <line>1849</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ScenePeerListener</class>
+      <method>mouseEvent</method>
+      <line>2588</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>397</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>295</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>lambda$handleMouseEvent$2</method>
+      <line>434</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.QuantumToolkit</class>
+      <method>runWithoutRenderLock</method>
+      <line>390</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>handleMouseEvent</method>
+      <line>433</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>handleMouseEvent</method>
+      <line>556</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>notifyMouse</method>
+      <line>942</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
 </log>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">

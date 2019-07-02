@@ -9,71 +9,154 @@ import etf.model.person.Person;
 import java.io.IOException;
 import java.io.Serializable;
 import java.nio.file.Files;
+import java.nio.file.OpenOption;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Aircraft extends Thread implements Serializable {
     CustomLogger cl = new CustomLogger(this);
+    private static Integer idHelp = 0;
+
     private boolean crashed = false;
-    private HashMap<String,String> characteristics;
+    private HashMap<String,String> characteristics = new HashMap<>();
     private String model;
     private String Id;
     private int flightHeight;
     private long velocity;
     private List<Person> personList;
     private boolean friendly;
-    private int currentX;
-    private int currentY;
+    protected int currentX;
+    protected int currentY;
+    private static Object writterLock;
+    private static Object crashLock;
+
+    static{
+        writterLock = new Object();
+        crashLock = new Object();
+    }
+
+    private int moveDirection;
+    private boolean noted = false;
+    private boolean warnedToExit = false;
+
+    public void warneToExit() {
+        this.warnedToExit = true;
+    }
+
+    public int getCurrentX() {
+        return currentX;
+    }
+
+    public int getCurrentY() {
+        return currentY;
+    }
+
+    public String getAircraftId(){return this.Id;}
+
+    public Aircraft(String details, int spawnX, int spawnY){
+        this.velocity = randomSpeed();
+        this.friendly = !details.startsWith("NEPRIJATELJSKI_AVIONI");
+        String[] detailsHelp = details.split("#");
+        String[] modelsHelp = new String[0];
+        String characteristicsHelpString = null;
+        for(int i = 0; i < detailsHelp.length; i++){
+            if(detailsHelp[i].startsWith("model")){
+                modelsHelp = detailsHelp[i].split("!");
+            }else if(detailsHelp[i].startsWith("characteristics")){
+                characteristicsHelpString = detailsHelp[i];
+            }
+        }
+        this.model = modelsHelp[1];
+        idHelp++;
+        this.Id = idHelp.toString();
+        Random rnd = new Random();
+        this.flightHeight = (rnd.nextInt(ConfigFileManager.HIGHT_SPAN) + 1)*250;
+        currentX = spawnX;
+        currentY = spawnY;
+        String[] characteristicsHelpArray = characteristicsHelpString.split("!");
+        for(int i = 1; i < characteristicsHelpArray.length; i++){
+            String hlp1 = characteristicsHelpArray[i].split("@")[0];
+            String hlp2 = characteristicsHelpArray[i].split("@")[1];
+            characteristics.put(hlp1,hlp2);
+        }
+        setMoveDirection();
+    }
+
 
     @Override
     public void run() {
         ConfigFileManager cnf = new ConfigFileManager();
-        Airspace airspace = Airspace.getAirspace();
-        writeInMap(); // nakon sto se napravi upisace se u map.txt file
-        int moveDirection = setMoveDirection();
-        boolean flightBan = false;
-        if(moveDirection == 1){
-            while(moveUp(airspace) && !crashed){ //pri svakom kretanju automatski se updejtuje map.txt, na kraju kretanja se brise iz map.tx
-                checkCrash();
-                flightBan = checkFlightBan();
-            if(flightBan)break;
+        if(friendly) {
+            writeInMap();
+            Airspace airspace = Airspace.getAirspace();
+            airspace.addAircraft(currentX, currentY, this);
+            boolean flightBan = false;
+            if (this.moveDirection == 1) {
+                while (moveUp(airspace) && !crashed && !warnedToExit) { //pri svakom kretanju automatski se updejtuje map.txt, na kraju kretanja se brise iz map.tx
+                    checkCrash();
+                    flightBan = checkFlightBan();
+                    if (flightBan) break;
+                }
+            } else if (this.moveDirection == 2) {
+                while (moveDown(airspace) && !crashed && !warnedToExit) {
+                    checkCrash();
+                    flightBan = checkFlightBan();
+                    if (flightBan) break;
+                }
+            } else if (this.moveDirection == 3) {
+                while (moveLeft(airspace) && !crashed && !warnedToExit) {
+                    checkCrash();
+                    flightBan = checkFlightBan();
+                    if (flightBan) break;
+                }
+            } else if (this.moveDirection == 4) {
+                while (moveRight(airspace) && !crashed && !warnedToExit) {
+                    checkCrash();
+                    flightBan = checkFlightBan();
+                    if (flightBan) break;
+                }
             }
-        }else if(moveDirection == 2){
-            while(moveDown(airspace) && !crashed){
-                checkCrash();
-                flightBan = checkFlightBan();
-                if(flightBan)break;
+            if (flightBan || warnedToExit) { //potencijalno mijenja smjer kretanja, update map.txt se nastavlja kroz metode za kretanje
+                closestBorder(moveDirection);
+                moveWithoutCheckingFlightBan(moveDirection,airspace);
             }
-        }else if(moveDirection == 3){
-            while(moveLeft(airspace) && !crashed){
-                checkCrash();
-                flightBan = checkFlightBan();
-                if(flightBan)break;
-            }
-        }else if(moveDirection == 4){
-            while(moveRight(airspace) && !crashed){
-                checkCrash();
-                flightBan = checkFlightBan();
-                if(flightBan)break;
-            }
-        }
-        if(flightBan){ //potencijalno mijenja smjer kretanja, update map.txt se nastavlja kroz metode za kretanje
-            moveDirection = closestBorder(moveDirection);
-            if(moveDirection == 1){
-                while(moveUp(airspace) && !crashed){checkCrash();}
-            }else if(moveDirection == 2){
-                while(moveDown(airspace) && !crashed){checkCrash();}
-            }else if(moveDirection == 3){
-                while(moveLeft(airspace) && !crashed){checkCrash();}
-            }else if(moveDirection == 4){
-                while(moveRight(airspace) && !crashed){checkCrash();}
+            if (crashed) {
+                airspace.removeAircraft(currentX, currentY, this);
+                deleteFromMap();
             }
         }
-        if(crashed) {
-            airspace.removeAircraft(currentX, currentY, this);
-            deleteFromMap();
+        else if (!friendly){
+            Airspace airspace = Airspace.getAirspace();
+            airspace.addAircraft(currentX, currentY, this);
+            writeInMap();
+            moveWithoutCheckingFlightBan(moveDirection,airspace);
+            if (crashed) {
+                airspace.removeAircraft(currentX, currentY, this);
+                deleteFromMap();
+            }
+        }
+    }
+
+    private void moveWithoutCheckingFlightBan(int moveDirection, Airspace airspace){
+        if (moveDirection == 1) {
+            while (moveUp(airspace) && !crashed) {
+                checkCrash();
+            }
+        } else if (moveDirection == 2) {
+            while (moveDown(airspace) && !crashed) {
+                checkCrash();
+            }
+        } else if (moveDirection == 3) {
+            while (moveLeft(airspace) && !crashed) {
+                checkCrash();
+            }
+        } else if (moveDirection == 4) {
+            while (moveRight(airspace) && !crashed) {
+                checkCrash();
+            }
         }
     }
 
@@ -93,20 +176,21 @@ public class Aircraft extends Thread implements Serializable {
      *
      * @return 0-default, 1-up, 2-down, 3-left, 4-right
      */
-    private int setMoveDirection(){
+    public int setMoveDirection(){
         int retVal = 0;
-        if(currentX == 99){
+        if(currentX == ConfigFileManager.X_DIMENSION - 1){
             retVal = 3;
         }
         else if(currentX == 0){
             retVal = 4;
         }
-        else if(currentY == 99){
+        else if(currentY == ConfigFileManager.Y_DIMENSION - 1){
             retVal = 1;
         }
         else {
             retVal = 2;
         }
+        this.moveDirection = retVal;
         return retVal;
     }
 
@@ -116,15 +200,12 @@ public class Aircraft extends Thread implements Serializable {
      * @param currentMoveDirection u slucaju da se letjelica treba okrenuti nazad ne moze, treba polukruzno
      */
     private int closestBorder(int currentMoveDirection) {
-        /*todo ukoliko letjelica treba krenuti unazad odradi polukruzno kretanje ovdje
-             i onda se vrati u run sa novim koordinatama i pozicijom u zracnom prostoru
-        */
         int retVal = 0;
 
-        int distanceFromRight = 99 - currentX;
+        int distanceFromRight = (ConfigFileManager.X_DIMENSION -1) - currentX;
         int distanceFromLeft = currentX;
         int distanceFromUp = currentY;
-        int distanceFromDown = 99 - currentY;
+        int distanceFromDown = (ConfigFileManager.Y_DIMENSION - 1) - currentY;
 
         if(distanceFromUp < distanceFromDown){
             retVal = 1;
@@ -166,7 +247,7 @@ public class Aircraft extends Thread implements Serializable {
                 }
             }
         }
-
+        this.moveDirection = retVal;
         return retVal;
     }
 
@@ -216,28 +297,33 @@ public class Aircraft extends Thread implements Serializable {
     }
 
     public String toString(){
-        String retVal = "id!" + this.Id +"#model!"+this.model+"#flightheight!"+this.flightHeight +"#velocity!"+this.velocity+
+        String retVal = "id!" + this.Id +"#model!"+this.model+ "#friendly!" + this.friendly + "#flightheight!"+this.flightHeight +"#velocity!"+this.velocity+
                 "#currX!"+this.currentX+"#currY!"+this.currentY+"#height!"+this.characteristics.get("height")+"#width!" +
                 this.characteristics.get("width");
         return retVal;
     }
 
-    public synchronized void writeInMap() {
+    public void writeInMap() {
         try {
-            List<String> allAircrafts = Files.readAllLines(Paths.get("src/etf/files/map.txt"));
-            allAircrafts.add(this.toString());
-            Files.write(Paths.get("etf/files/map.txt"), allAircrafts);
+            List<String> allAircrafts = null;
+            synchronized (writterLock) {
+                allAircrafts = Files.readAllLines(Paths.get("src/etf/files/map.txt"));
+                allAircrafts.add(this.toString());
+                Files.write(Paths.get("src/etf/files/map.txt"), allAircrafts);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             cl.logException(e.getMessage(),e);
         }
     }
 
-    public synchronized void updateInMap(){
+    public void updateInMap(){
         try {
-            List<String> allAircrafts = removeFromList();
-            allAircrafts.add(this.toString());
-            Files.write(Paths.get("src/etf/files/map.txt"),allAircrafts);
+            synchronized (writterLock){
+                List<String> allAircrafts = removeFromList();
+                allAircrafts.add(this.toString());
+                Files.write(Paths.get("src/etf/files/map.txt"), allAircrafts);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             cl.logException(e.getMessage(),e);
@@ -245,16 +331,31 @@ public class Aircraft extends Thread implements Serializable {
     }
 
     private List<String> removeFromList() throws IOException {
-        List<String> allAircrafts = Files.readAllLines(Paths.get("src/etf/files/map.txt"));
-        String thisAircraft = allAircrafts.stream().filter(x->x.startsWith(""+this.hashCode())).collect(Collectors.toList()).get(0);
-        allAircrafts.remove(thisAircraft);
+        List<String> allAircrafts = null;
+        try{
+            allAircrafts = Files.readAllLines(Paths.get("src/etf/files/map.txt"));
+            List<String> compatibleAircrafts = null;
+            String thisAircraft = null;
+            compatibleAircrafts = allAircrafts.stream().filter(
+                    x -> x.startsWith("id!" + this.getAircraftId())).collect(Collectors.toList());
+            if(compatibleAircrafts.size()>0){
+                thisAircraft = compatibleAircrafts.get(0);
+            }
+            if(thisAircraft!=null) {
+                allAircrafts.remove(thisAircraft);
+            }
+        }catch (IndexOutOfBoundsException iobe){
+            cl.logException(iobe.getMessage(), iobe);
+        }
         return allAircrafts;
     }
 
-    public synchronized void deleteFromMap(){
+    public void deleteFromMap(){
         try {
-            List<String> allAircrafts = removeFromList();
-            Files.write(Paths.get("src/etf/files/map.txt"),allAircrafts);
+            synchronized (writterLock) {
+                List<String> allAircrafts = removeFromList();
+                Files.write(Paths.get("src/etf/files/map.txt"), allAircrafts);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             cl.logException(e.getMessage(),e);
@@ -272,13 +373,15 @@ public class Aircraft extends Thread implements Serializable {
                 crashedAircraft = aircraft;
             }
         }
-        if(crashedAircraft!=null){
-            crashedAircraft.setCrashed(true);
-            this.crashed = true;
-            String details = "First Aircraft : " + this.getId() + " Second Aircraft : " + crashedAircraft.getId();
-            String time = LocalDateTime.now().toString();
-            String position = "X : " + this.currentY + " Y : " + this.currentY;
-            CrashManager cm = new CrashManager(details,time,position); // upisuje sudar odmah odmah
+        if(crashedAircraft!=null) {
+            synchronized (crashLock) {
+                crashedAircraft.setCrashed(true);
+                this.crashed = true;
+                String details = "First Aircraft : " + this.getAircraftId() + " Second Aircraft : " + crashedAircraft.getAircraftId();
+                String time = LocalDateTime.now().getHour()+"_"+LocalDateTime.now().getMinute()+"_"+LocalDateTime.now().getSecond();
+                String position = "X : " + this.currentY + " Y : " + this.currentY;
+                CrashManager cm = new CrashManager(details, time, position); // upisuje sudar odmah
+            }
         }
     }
 
@@ -390,4 +493,19 @@ public class Aircraft extends Thread implements Serializable {
         return retVal;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void noteAircraft(){
+        noted = true;
+    }
+
+    public boolean isNoted() {
+        return noted;
+    }
+
+    public int getMoveDirection() {
+        return this.moveDirection;
+    }
 }

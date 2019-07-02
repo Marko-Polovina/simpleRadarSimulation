@@ -16,3 +16,6 @@ out/production/simpleRadarSimulation/config.properties
 out/production/simpleRadarSimulation/META-INF/simpleRadarSimulation.kotlin_module
 out/production/simpleRadarSimulation/etf/files/alert/proba.txt
 out/production/simpleRadarSimulation/alert/proba.txt
+*.ser
+*.zip
+log.log.lck

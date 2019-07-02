@@ -20,11 +20,15 @@ public class UnmannedAircraft extends Aircraft {
         super(characteristics, model, id, height, velocity, personList, friendly, currentX, currentY);
     }
 
+    public UnmannedAircraft(String details, int spawnX, int spawnY){
+        super(details, spawnX, spawnY);
+    }
+
     public boolean takeShoots(){
         return true;
     }
 
     public String toString(){
-        return ""+this.hashCode()+"#Unmanned#"+super.toString();
+        return super.toString() + "#Unmanned#";
     }
 }

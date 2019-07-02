@@ -20,8 +20,12 @@ public class ConfigFileManager{
     public static String PASSANGER_AIRPLANE_PROPERTIES;
     public static String PASSANGER_HELICOPTER_PROPERTIES;
     public static String FIREFIGHTING_HELICOPTER_PROPERTIES;
+    public static String BOMBER;
     public static int SPAWN_RATE;
     private static CustomLogger cl;
+    public static int HIGHT_SPAN;
+    public static int RADAR_REFRESH_RATE;
+
     static
     {
         List<String> properties = null;
@@ -40,9 +44,12 @@ public class ConfigFileManager{
         PASSANGER_AIRPLANE_PROPERTIES = properties.stream().filter(x->x.startsWith("PUTNICKI_AVION")).collect(Collectors.toList()).get(0);
         PASSANGER_HELICOPTER_PROPERTIES = properties.stream().filter(x->x.startsWith("PUTNICKI_HELIKOPTER")).collect(Collectors.toList()).get(0);
         FIREFIGHTING_HELICOPTER_PROPERTIES = properties.stream().filter(x->x.startsWith("PROTIV_POZARNI_HELIKOPTER")).collect(Collectors.toList()).get(0);
+        BOMBER = properties.stream().filter(x->x.startsWith("BOMBARDER")).collect(Collectors.toList()).get(0);
         X_DIMENSION = Integer.parseInt(properties.stream().filter(x->x.startsWith("n")).collect(Collectors.toList()).get(0).split("!")[1]);
         Y_DIMENSION = Integer.parseInt(properties.stream().filter(x->x.startsWith("m")).collect(Collectors.toList()).get(0).split("!")[1]);
         SPAWN_RATE = Integer.parseInt(properties.stream().filter(x->x.startsWith("spawnRate")).collect(Collectors.toList()).get(0).split("!")[1]);
+        HIGHT_SPAN = Integer.parseInt(properties.stream().filter(x->x.startsWith("hightSpan")).collect(Collectors.toList()).get(0).split("!")[1]);
+        RADAR_REFRESH_RATE = Integer.parseInt(properties.stream().filter(x->x.startsWith("radarRefreshRate")).collect(Collectors.toList()).get(0).split("!")[1]);
 
     }
 
@@ -51,12 +58,34 @@ public class ConfigFileManager{
     }
 
     public synchronized static boolean checkEnemyMilitaryAircraftSpawn(){
-        return checkProperty("enemy");
+        boolean retVal = false;
+        List<String> allLines = null;
+        try {
+            allLines = Files.readAllLines(Paths.get("src/etf/files/config.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            cl.logException(e.getMessage(),e);
+        }
+        String[] enemyBan = allLines.stream().filter(x->x.startsWith("enemy")).collect(Collectors.toList()).get(0).split("!");
+        if(!enemyBan[1].equals("-1"))
+            retVal = true;
+        return retVal;
     }
 
     public synchronized static boolean checkFriendlyMilitaryAircraftSpawn(){
-        return checkProperty("friendly");
-    }
+        boolean retVal = false;
+        List<String> allLines = null;
+        try {
+            allLines = Files.readAllLines(Paths.get("src/etf/files/config.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            cl.logException(e.getMessage(),e);
+        }
+        String[] friendlyBan = allLines.stream().filter(x->x.startsWith("friendly")).collect(Collectors.toList()).get(0).split("!");
+        if(!friendlyBan[1].equals("-1"))
+            retVal = true;
+        return retVal;    }
+
 
     public synchronized static void updateFlightBan(boolean ban){
         String flightBan;
@@ -86,14 +115,15 @@ public class ConfigFileManager{
         boolean retVal = false;
         List<String> allLines = null;
         try {
-            allLines = Files.readAllLines(Paths.get("etf/files/config.properties"));
+            allLines = Files.readAllLines(Paths.get("src/etf/files/config.properties"));
         } catch (IOException e) {
             e.printStackTrace();
             cl.logException(e.getMessage(),e);
         }
-        String[] flightBan = allLines.stream().filter(x->x.startsWith(property)).collect(Collectors.toList()).get(0).split("$");
-        if(!flightBan[1].equals("0"))
+        String[] flightBan = allLines.stream().filter(x->x.startsWith(property)).collect(Collectors.toList()).get(0).split("!");
+        if(!flightBan[1].equals("1"))
             retVal = true;
         return retVal;
     }
+
 }

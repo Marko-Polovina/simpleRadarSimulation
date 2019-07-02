@@ -1,27 +1,41 @@
 package etf.gui.controller.mainController;
 
+import etf.customLogger.CustomLogger;
 import etf.fileManagers.ConfigFileManager;
-import etf.gui.controller.crashesViewController.CrashesViewController;
+import etf.fileManagers.EventManager;
+import etf.gui.controller.crashesViewController.EventsCrashesViewController;
 import etf.gui.controller.detailsController.DetailsViewControler;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class MainViewController implements Initializable {
+    private static Path mapLocation = Paths.get("src\\etf\\files\\map.txt");
+    CustomLogger cl = new CustomLogger(this);
+
     private static boolean FlightBanEnforcement = false;
+    private static List<String> map = new ArrayList<String>();
 
     @FXML
     private GridPane FlightArea;
@@ -34,6 +48,20 @@ public class MainViewController implements Initializable {
 
     @FXML
     private Button CrashDetailsBtn;
+
+    @FXML
+    private Button eventsButton;
+
+    @FXML
+    private Label eventsLabel;
+
+    public Label getEventsLabel() {
+        return eventsLabel;
+    }
+
+    public void setEventsLabel(Label label) {
+        this.eventsLabel = label;
+    }
 
     public MainViewController(){}
 
@@ -69,12 +97,28 @@ public class MainViewController implements Initializable {
         CrashDetailsBtn = crashDetailsBtn;
     }
 
+    public void updateMap(){
+        String mapLocation = "src\\etf\\files\\map.txt";
+        map = null;
+        try {
+            map = Files.readAllLines(Paths.get(mapLocation));
+        } catch (IOException e) {
+            cl.logException(e.getMessage(),e);
+        }
+    }
+
+    public List<String> getMap(){return map;}
+
+    public List<String> getAircraftOnLocation(int locationX, int locationY){
+        return map.stream().filter(x->x.contains("#currX!"+locationX+"#currY!"+locationY)).collect(Collectors.toList());
+    }
+
     /**
      * Inicijalizuje sva polja GridPane-a
      * Postavlja ih na Pane-ove koji sadrze Label-e
      * Odabrao sam Pane-ove zbog lakseg postavljanja handlera na njih
      * Postavlja dugme za zatvaranje
-     * Postavlja dugme za prikaz svih nesreca i obradu proslijedjuje CrashesViewController
+     * Postavlja dugme za prikaz svih nesreca i obradu proslijedjuje EventsCrashesViewController
      * Postavlja funkcionalnost toggle-a za zabranu leta
      */
     public void initialize(){
@@ -87,10 +131,23 @@ public class MainViewController implements Initializable {
                 pane.setPrefWidth(50);
                 onGridPanePositionClick(pane);
                 FlightArea.add(pane, i, j);
-            }*
-        ExitBtn.setOnAction(x -> Platform.exit());
-        CrashDetailsBtn.setOnAction(x -> new CrashesViewController().browseCrashes());
+            }
+        ExitBtn.setOnAction(x -> {
+            File dir = new File("src\\etf\\files\\events\\");
+            for(File file : dir.listFiles()){
+                file.delete();
+            }
+            Platform.exit();
+        });
+        CrashDetailsBtn.setOnAction(x -> new EventsCrashesViewController().browseCrashes());
         FlightBan.setOnAction(x -> toggleFlightBan());
+        eventsButton.setOnAction(x-> new EventsCrashesViewController().browseEvents());
+        EventManager em = new EventManager(this);
+        em.setDaemon(true);
+        em.start();
+        GridDraw gd = new GridDraw(this);
+        gd.setDaemon(true);
+        gd.start();
     }
 
 
@@ -125,6 +182,22 @@ public class MainViewController implements Initializable {
         }
     }
 
+    public synchronized Label getFlightAreaLabel(int column, int row){
+        Label retVal = null;
+
+        for(Node field : FlightArea.getChildren()){
+            if(field instanceof Pane
+                    && GridPane.getRowIndex(field) == row
+                    && GridPane.getColumnIndex(field) == column)
+            {
+                Pane pane = (Pane)FlightArea.getChildren().get(column*ConfigFileManager.X_DIMENSION + row + 1);
+                retVal = (Label)pane.getChildren().get(0);
+            }
+        }
+
+        return retVal;
+    }
+
     /**
      *
      * @param column    Kolona iz logicke matrice(stvarna pozicija)
@@ -154,7 +227,9 @@ public class MainViewController implements Initializable {
             Node node = (Node)x.getSource();
             int i = GridPane.getColumnIndex(node);
             int j = GridPane.getRowIndex(node);
-            new DetailsViewControler().showAircraftDetails(i,j);
+            DetailsViewControler dvc = new DetailsViewControler();
+            dvc.setMvc(this);
+            dvc.showAircraftDetails(i,j);
         });
     }
 
@@ -162,6 +237,4 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initialize();
     }
-
-    //todo odredi gdje ce se ucitavati fajl map.txt i gdje ce se pozivati setLabel metoda
 }

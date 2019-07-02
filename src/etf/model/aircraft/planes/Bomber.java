@@ -14,11 +14,21 @@ public class Bomber extends Plane implements Military {
         super(characteristics, model, id, height, velocity, personList, friendly, currentX, currentY);
     }
 
+
+    public Bomber(String details, int spawnX, int spawnY){
+        super(details, spawnX, spawnY);
+    }
+
     public boolean bombTarget(){
         return true;
     }
 
     public String toString(){
-        return ""+ this.hashCode() + "#Bomber#" + super.toString();
+        return super.toString() + "#Bomber#";
+    }
+
+    @Override
+    public void shootDown(int moveDirection) {
+        System.out.println("Uspjesno oboren.");
     }
 }

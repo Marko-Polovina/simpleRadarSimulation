@@ -29,7 +29,7 @@ public class CrashesViewApp extends Application {
 
     }
 
-    public void showCrashes(CrashesViewController cvc, Stage primaryStage){
+    public void showCrashes(EventsCrashesViewController cvc, Stage primaryStage){
         FXMLLoader fxmlLoader = null;
         try {
             fxmlLoader = new FXMLLoader(new File("src\\etf\\gui\\view\\CrashView\\ListAllCrashes.fxml").toURI().toURL());
@@ -45,11 +45,35 @@ public class CrashesViewApp extends Application {
         }
         cvc.setScrollPane((ScrollPane)cvc.getAnchorPane().getChildren().get(0));
         cvc.setCrashListings((Label)cvc.getScrollPane().getContent());
-        cvc.setLabel();
+        cvc.setCrashesLabel();
 
         Scene mainScene = new Scene(cvc.getAnchorPane());
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("Detalji o sudarima");
+        primaryStage.show();
+    }
+
+    public void showEvents(EventsCrashesViewController cvc, Stage primaryStage){
+        FXMLLoader fxmlLoader = null;
+        try {
+            fxmlLoader = new FXMLLoader(new File("src\\etf\\gui\\view\\CrashView\\ListAllCrashes.fxml").toURI().toURL());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            cl.logException(e.getMessage(),e);
+        }
+        try {
+            cvc.setAnchorPane(fxmlLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+            cl.logException(e.getMessage(),e);
+        }
+        cvc.setScrollPane((ScrollPane)cvc.getAnchorPane().getChildren().get(0));
+        cvc.setCrashListings((Label)cvc.getScrollPane().getContent());
+        cvc.setEventsLabel();
+
+        Scene mainScene = new Scene(cvc.getAnchorPane());
+        primaryStage.setScene(mainScene);
+        primaryStage.setTitle("Detalji o događajima");
         primaryStage.show();
     }
 }

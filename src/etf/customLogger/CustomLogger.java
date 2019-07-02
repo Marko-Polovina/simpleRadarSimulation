@@ -28,7 +28,7 @@ public class CustomLogger {
         handler.setLevel(Level.ALL);
     }
 
-    synchronized public void logException(String dogadjaj, Throwable ex){
-        logger.log(Level.SEVERE,dogadjaj, ex);
+    synchronized public void logException(String event, Throwable ex){
+        logger.log(Level.SEVERE,event, ex);
     }
 }

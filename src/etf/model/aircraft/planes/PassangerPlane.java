@@ -4,9 +4,11 @@ import etf.model.aircraft.Aircraft;
 import etf.model.aircraft.PassangerAircraft;
 import etf.model.person.Person;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class PassangerPlane extends Plane implements PassangerAircraft {
     private int passangerSeats;
@@ -16,6 +18,15 @@ public class PassangerPlane extends Plane implements PassangerAircraft {
         super(characteristics, model, id, height, velocity, personList, friendly, currentX, currentY);
         this.passangerSeats = passangerSeats;
         this.maxCarryWeight = maxCarryWeight;
+    }
+
+    public PassangerPlane(String details, int spawnX, int spawnY) {
+        super(details, spawnX, spawnY);
+        List<String> detailsHelpArray = Arrays.asList(details.split("#"));
+        String seatsStringHelp = detailsHelpArray.stream().filter(x->x.startsWith("seats")).collect(Collectors.toList()).get(0);
+        this.passangerSeats = Integer.parseInt(seatsStringHelp.split("!")[1]);
+        String cappacityStringHelp = detailsHelpArray.stream().filter(x->x.startsWith("maxcarry")).collect(Collectors.toList()).get(0);
+        this.maxCarryWeight = Integer.parseInt(cappacityStringHelp.split("!")[1]);
     }
 
     public int getPassangerSeats() {
@@ -35,6 +46,6 @@ public class PassangerPlane extends Plane implements PassangerAircraft {
     }
 
     public String toString(){
-        return ""+this.hashCode()+"#Passanger Plane"+"#passangers!" + this.passangerSeats + "#carryweight!" + this.maxCarryWeight +super.toString();
+        return super.toString() + "#Passanger Plane"+"#passangers!" + this.passangerSeats + "#carryweight!" + this.maxCarryWeight;
     }
 }
