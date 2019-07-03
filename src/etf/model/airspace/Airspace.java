@@ -6,13 +6,11 @@ import etf.model.aircraft.Aircraft;
 import etf.model.aircraft.planes.FighterPlane;
 import etf.model.rockets.Rockets;
 import etf.simulation.Simulation;
-import javafx.util.converter.LocalDateStringConverter;
 import javafx.util.converter.LocalDateTimeStringConverter;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -78,6 +76,7 @@ public class Airspace {
     }
 
     //todo zavrsi implementaciju pozicioniranja lovaca, uradjeno kretanje i 'lov'
+    /*
     public void createAndSendHunters(int moveDirection, int startXEnemyAircraft, int startYEnemyAircraft){
         final int moveDirectionFinal = moveDirection;
         FighterPlane[] fighterPlane = createHunter(moveDirection,startXEnemyAircraft,startYEnemyAircraft);
@@ -86,15 +85,16 @@ public class Airspace {
         System.out.println("Napravio lovca 1!" + fighterPlane[0].getCurrentX() + " " + fighterPlane[0].getCurrentY());
         System.out.println("Napravio lovca 2!" + fighterPlane[1].getCurrentX() + " " + fighterPlane[1].getCurrentY());
         for(Aircraft aircraft : allAircrafts){
-            aircraft.warneToExit();
+            aircraft.warnToExit();
         }
         new Thread(()->fighterPlane[0].shootDown(moveDirectionFinal)).start();
         new Thread(()->fighterPlane[1].shootDown(moveDirectionFinal)).start();
         System.out.println("Pokrenuo lovce!");
     }
-
+*/
     // pravi niz od dva lovca koja pravilno pozicionira oko lovljene letjelice
     //todo pojednostavi biranje pravca i spawnanje lovaca sto vise mozes, sad odani malo
+    /*
     private FighterPlane[] createHunter(int moveDirection,int startEnemyX, int startEnemyY){
         FighterPlane[] retVal = new FighterPlane[2];
 
@@ -156,5 +156,102 @@ public class Airspace {
         retVal[1] = new FighterPlane(planeDetails, spawnXTwo, spawnYTwo);
         return retVal;
     }
+    */
 
+    public synchronized void createAndSendHunters(int moveDirection, int startX, int startY){
+        FighterPlane[] fighters = new FighterPlane[2];
+        fighters = createFighters(moveDirection, startX, startY);
+        allAircrafts.add(fighters[0]);
+        allAircrafts.add(fighters[1]);
+        for(Aircraft aircraft : allAircrafts){
+            aircraft.warnToExit();
+        }
+        final int moveDirectionFinal = moveDirection;
+        final FighterPlane[] fighterPlanes = fighters;
+        System.out.println("Napravio lovce i dosao do pokretanja." + fighterPlanes[0].getMoveDirection());
+        new Thread(()->fighterPlanes[0].shootDown(moveDirectionFinal)).start();
+        new Thread(()->fighterPlanes[1].shootDown(moveDirectionFinal)).start();
+    }
+
+    //1-up, 2-down, 3-left, 4-right
+    private FighterPlane[] createFighters(int moveDirection, int startX, int startY){
+        FighterPlane[] retVal = new FighterPlane[2];
+        int XOne=0,XTwo=0,YOne=0,YTwo=0; // pocetne koordinate lovca jedan i dva
+        if(moveDirection == 1){
+            if(startX == 0 && startY == (ConfigFileManager.Y_DIMENSION - 1)){
+                XOne = startX;
+                YOne = startY;
+                XTwo = 1;
+                YTwo = startY;
+            }else if(startX == (ConfigFileManager.X_DIMENSION - 1) && startY == (ConfigFileManager.Y_DIMENSION - 1))
+            {
+                XOne = startX;
+                YOne = startY;
+                XTwo = ConfigFileManager.X_DIMENSION - 2;
+                YTwo = startY;
+            }else{
+                XOne = startX - 1;
+                YOne = startY;
+                XTwo = startX + 1;
+                YTwo = startY;
+            }
+        }else if(moveDirection == 2){
+            if(startX == 0 && startY == 0){
+                XOne = startX;
+                XTwo = 1;
+                YOne = startY;
+                YTwo = startY;
+            }else if(startX == (ConfigFileManager.X_DIMENSION - 1) && startY == 0){
+                XOne = startX;
+                XTwo = startX - 1;
+                YOne = startY;
+                YTwo = startY;
+            }else{
+                XOne = startX + 1;
+                XTwo = startX - 1;
+                YOne = startY;
+                YTwo = startY;
+            }
+        }else if(moveDirection == 3){
+            //left, starts at right side
+            if(startX == (ConfigFileManager.X_DIMENSION - 1) && startY == 0){
+                XOne = startX;
+                XTwo = startX;
+                YOne = startY;
+                YTwo = 1;
+            }else if(startX == (ConfigFileManager.X_DIMENSION - 1) && startY == (ConfigFileManager.Y_DIMENSION - 1)){
+                XOne = startX;
+                XTwo = startX;
+                YOne = startY;
+                YTwo = startY - 1;
+            }else{
+                XOne = startX;
+                XTwo = startX;
+                YOne = startY + 1;
+                YTwo = startY - 1;
+            }
+        }else if(moveDirection == 4){
+            if(startX == 0 && startY == 0){
+                XOne = startX;
+                XTwo = startX;
+                YOne = startY;
+                YTwo = 1;
+            }else if(startX == 0 && startY == (ConfigFileManager.Y_DIMENSION - 1)){
+                XOne = startX;
+                XTwo = startX;
+                YOne = startY;
+                YTwo = startY - 1;
+            }else{
+                XOne = startX;
+                XTwo = startX;
+                YOne = startY + 1;
+                YTwo = startY - 1;
+            }
+        }
+        FighterPlane fighterOne = new FighterPlane(ConfigFileManager.FRIENDLY_HUNTER_PROPERTIES,XOne,YOne);
+        FighterPlane fighterTwo = new FighterPlane(ConfigFileManager.FRIENDLY_HUNTER_PROPERTIES,XTwo,YTwo);
+        retVal[0] = fighterOne;
+        retVal[1] = fighterTwo;
+        return retVal;
+    }
 }

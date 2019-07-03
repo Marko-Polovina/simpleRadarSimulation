@@ -3,8 +3,10 @@ package etf.model.aircraft;
 import etf.customLogger.CustomLogger;
 import etf.fileManagers.ConfigFileManager;
 import etf.fileManagers.CrashManager;
+import etf.gui.main.MainApp;
 import etf.model.airspace.Airspace;
 import etf.model.person.Person;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -42,7 +44,7 @@ public class Aircraft extends Thread implements Serializable {
     private boolean noted = false;
     private boolean warnedToExit = false;
 
-    public void warneToExit() {
+    public void warnToExit() {
         this.warnedToExit = true;
     }
 
@@ -379,7 +381,7 @@ public class Aircraft extends Thread implements Serializable {
                 this.crashed = true;
                 String details = "First Aircraft : " + this.getAircraftId() + " Second Aircraft : " + crashedAircraft.getAircraftId();
                 String time = LocalDateTime.now().getHour()+"_"+LocalDateTime.now().getMinute()+"_"+LocalDateTime.now().getSecond();
-                String position = "X : " + this.currentY + " Y : " + this.currentY;
+                String position = "X : " + this.currentX + " Y : " + this.currentY;
                 CrashManager cm = new CrashManager(details, time, position); // upisuje sudar odmah
             }
         }

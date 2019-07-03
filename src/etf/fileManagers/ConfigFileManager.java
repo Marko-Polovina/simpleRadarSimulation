@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ConfigFileManager{
+    public static double GRID_PANE_HEIGHT;
+    public static double GRID_PANE_WIDTH;
     public static int X_DIMENSION;
     public static int Y_DIMENSION;
     public static String TRANSPORT_AIRPLANE_PROPERTIES;
@@ -50,6 +52,8 @@ public class ConfigFileManager{
         SPAWN_RATE = Integer.parseInt(properties.stream().filter(x->x.startsWith("spawnRate")).collect(Collectors.toList()).get(0).split("!")[1]);
         HIGHT_SPAN = Integer.parseInt(properties.stream().filter(x->x.startsWith("hightSpan")).collect(Collectors.toList()).get(0).split("!")[1]);
         RADAR_REFRESH_RATE = Integer.parseInt(properties.stream().filter(x->x.startsWith("radarRefreshRate")).collect(Collectors.toList()).get(0).split("!")[1]);
+        GRID_PANE_HEIGHT = Double.parseDouble(properties.stream().filter(x->x.startsWith("gridPaneHeight")).collect(Collectors.toList()).get(0).split("!")[1]);
+        GRID_PANE_WIDTH = Double.parseDouble(properties.stream().filter(x->x.startsWith("gridPaneWidth")).collect(Collectors.toList()).get(0).split("!")[1]);
 
     }
 

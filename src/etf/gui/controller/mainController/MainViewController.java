@@ -6,6 +6,7 @@ import etf.fileManagers.EventManager;
 import etf.gui.controller.crashesViewController.EventsCrashesViewController;
 import etf.gui.controller.detailsController.DetailsViewControler;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -127,13 +128,17 @@ public class MainViewController implements Initializable {
         for(int i = 0; i < ConfigFileManager.X_DIMENSION; i++)
             for(int j = 0; j < ConfigFileManager.Y_DIMENSION; j++) {
                 Pane pane = new Pane(new Label(""));
-                pane.setPrefHeight(50);
-                pane.setPrefWidth(50);
+                pane.setPrefHeight(ConfigFileManager.GRID_PANE_HEIGHT);
+                pane.setPrefWidth(ConfigFileManager.GRID_PANE_WIDTH);
                 onGridPanePositionClick(pane);
                 FlightArea.add(pane, i, j);
             }
         ExitBtn.setOnAction(x -> {
             File dir = new File("src\\etf\\files\\events\\");
+            for(File file : dir.listFiles()){
+                file.delete();
+            }
+            dir = new File("src\\etf\\files\\alert\\");
             for(File file : dir.listFiles()){
                 file.delete();
             }
@@ -148,6 +153,9 @@ public class MainViewController implements Initializable {
         GridDraw gd = new GridDraw(this);
         gd.setDaemon(true);
         gd.start();
+        CrashAlert ca = new CrashAlert();
+        ca.setDaemon(true);
+        ca.start();
     }
 
 
@@ -173,7 +181,7 @@ public class MainViewController implements Initializable {
                     && GridPane.getRowIndex(field) == row
                     && GridPane.getColumnIndex(field) == column)
             {
-                Pane pane = (Pane)FlightArea.getChildren().get(column*ConfigFileManager.X_DIMENSION + row + 1);
+                Pane pane = (Pane)FlightArea.getChildren().get(column*ConfigFileManager.X_DIMENSION + row);
                 Label extLabel = (Label)pane.getChildren().get(0);
                 extLabel.setText(text);
                 extLabel.setTextFill(color);
@@ -188,10 +196,8 @@ public class MainViewController implements Initializable {
         for(Node field : FlightArea.getChildren()){
             if(field instanceof Pane
                     && GridPane.getRowIndex(field) == row
-                    && GridPane.getColumnIndex(field) == column)
-            {
-                Pane pane = (Pane)FlightArea.getChildren().get(column*ConfigFileManager.X_DIMENSION + row + 1);
-                retVal = (Label)pane.getChildren().get(0);
+                    && GridPane.getColumnIndex(field) == column) {
+                    retVal = (Label)((Pane)field).getChildren().get(0);
             }
         }
 
@@ -207,7 +213,7 @@ public class MainViewController implements Initializable {
         for(Node field : FlightArea.getChildren()){
             if(field instanceof Pane && GridPane.getRowIndex(field) == row && GridPane.getColumnIndex(field) == column)
             {
-                Pane pane = (Pane)FlightArea.getChildren().get(column*ConfigFileManager.X_DIMENSION + row + 1);
+                Pane pane = (Pane)FlightArea.getChildren().get(column*ConfigFileManager.X_DIMENSION + row);
                 Label extLabel = (Label)pane.getChildren().get(0);
                 extLabel.setVisible(false);
                 extLabel.setText("");

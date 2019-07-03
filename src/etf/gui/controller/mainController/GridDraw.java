@@ -58,20 +58,22 @@ public class GridDraw extends Thread {
             retVal =  AircraftCodes.BESPILOTNA_LETJELICA;
         }else if(aircraft.contains("Fighter Plane")){
             retVal = AircraftCodes.DOMACI_LOVAC;
-        }else if(aircraft.contains("Firefighting Plane")){
+        }else if(aircraft.contains("#Firefighting Plane")){
             retVal = AircraftCodes.PROTIV_POZARNI_AVION;
-        }else if(aircraft.equals("Passanger Plane")){
+        }else if(aircraft.contains("#Passanger Plane")){
             retVal = AircraftCodes.PUTNICKI_AVION;
-        }else if(aircraft.equals("Transport Airplane")){
+        }else if(aircraft.contains("#Transport Airplane")){
             retVal = AircraftCodes.TRANSPORTNI_AVION;
-        }else if(aircraft.equals("Firefighting Helicopter")){
+        }else if(aircraft.contains("#Firefighting Helicopter")){
             retVal = AircraftCodes.PROTIV_POZARNI_HELIKOPTER;
-        }else if(aircraft.equals("Passanger Helicopter")){
+        }else if(aircraft.contains("#Passanger Helicopter")){
             retVal = AircraftCodes.PUTNICKI_HELIKOPTER;
-        }else if(aircraft.equals("Transport Helicopter")){
+        }else if(aircraft.contains("#Transport Helicopter")){
             retVal = AircraftCodes.TRANSPORTNI_HELIKOPTER;
-        }else if(aircraft.contains("Bomber")){
+        }else if(aircraft.contains("#Bomber")){
             retVal = AircraftCodes.BOMBARDER;
+        }else if(aircraft.contains("#Transport Airplane")){
+            retVal = AircraftCodes.TRANSPORTNI_AVION;
         }
         return retVal;
     }
@@ -85,15 +87,15 @@ public class GridDraw extends Thread {
             return ColorCodes.DOMACI_LOVAC;
         }else if(aircraft.contains("Firefighting Plane")){
             return ColorCodes.PROTIV_POZARNI_AVION;
-        }else if(aircraft.equals("Passanger Plane")){
+        }else if(aircraft.contains("Passanger Plane")){
             return ColorCodes.PUTNICKI_AVION;
-        }else if(aircraft.equals("Transport Airplane")){
+        }else if(aircraft.contains("Transport Airplane")){
             return ColorCodes.TRANSPORTNI_AVION;
-        }else if(aircraft.equals("Firefighting Helicopter")){
+        }else if(aircraft.contains("Firefighting Helicopter")){
             return ColorCodes.PROTIV_POZARNI_HELIKOPTER;
-        }else if(aircraft.equals("Passanger Helicopter")){
+        }else if(aircraft.contains("Passanger Helicopter")){
             return ColorCodes.PUTNICKI_HELIKOPTER;
-        }else if(aircraft.equals("Transport Helicopter")){
+        }else if(aircraft.contains("Transport Helicopter")){
             return ColorCodes.TRANSPORTNI_HELIKOPTER;
         }else if(aircraft.contains("Bomber")){
             return ColorCodes.BOMBARDER;

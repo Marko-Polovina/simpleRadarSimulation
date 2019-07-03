@@ -43,8 +43,10 @@ public class BackUp extends Thread {
                 for(String filePath : allFiles){
                     ZipEntry ze = new ZipEntry(filePath);
 
+                    String filePathRelative = "src\\etf\\files\\" + filePath.substring(dirPath.length() + 1, filePath.length());
+
                     zos.putNextEntry(ze);
-                    FileInputStream fis = new FileInputStream(filePath);
+                    FileInputStream fis = new FileInputStream(filePathRelative);
                     while((len = fis.read(buffer))> 0){
                         zos.write(buffer, 0 , len);
                     }

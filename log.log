@@ -4650,3 +4650,959 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T07:17:06.755135800Z</date>
+  <millis>1562138226755</millis>
+  <nanos>135800</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.backUpManager.BackUp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>15</thread>
+  <message>alert\12_11_41.ser (The system cannot find the path specified)</message>
+  <exception>
+    <message>java.io.FileNotFoundException: alert\12_11_41.ser (The system cannot find the path specified)</message>
+    <frame>
+      <class>java.io.FileInputStream</class>
+      <method>open0</method>
+    </frame>
+    <frame>
+      <class>java.io.FileInputStream</class>
+      <method>open</method>
+      <line>213</line>
+    </frame>
+    <frame>
+      <class>java.io.FileInputStream</class>
+      <method>&lt;init&gt;</method>
+      <line>155</line>
+    </frame>
+    <frame>
+      <class>java.io.FileInputStream</class>
+      <method>&lt;init&gt;</method>
+      <line>110</line>
+    </frame>
+    <frame>
+      <class>etf.backUpManager.BackUp</class>
+      <method>run</method>
+      <line>49</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:08:30.981111700Z</date>
+  <millis>1562144910981</millis>
+  <nanos>111700</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:09:26.382675300Z</date>
+  <millis>1562144966382</millis>
+  <nanos>675300</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:10:01.347250600Z</date>
+  <millis>1562145001347</millis>
+  <nanos>250600</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:11:17.447314800Z</date>
+  <millis>1562145077447</millis>
+  <nanos>314800</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:12:47.210599200Z</date>
+  <millis>1562145167210</millis>
+  <nanos>599200</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:15:48.166537Z</date>
+  <millis>1562145348166</millis>
+  <nanos>537000</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:19:36.514994500Z</date>
+  <millis>1562145576514</millis>
+  <nanos>994500</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>23</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run$$$capture</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:20:33.073133200Z</date>
+  <millis>1562145633073</millis>
+  <nanos>133200</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:23:00.134764600Z</date>
+  <millis>1562145780134</millis>
+  <nanos>764600</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-07-03T09:24:12.697823600Z</date>
+  <millis>1562145852697</millis>
+  <nanos>823600</nanos>
+  <sequence>0</sequence>
+  <logger>class etf.gui.main.MainApp</logger>
+  <level>SEVERE</level>
+  <class>etf.customLogger.CustomLogger</class>
+  <method>logException</method>
+  <thread>21</thread>
+  <message>
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+  <exception>
+    <message>javafx.fxml.LoadException: 
+/C:/Users/Marko/Documents/simpleRadarSimulation/src/etf/gui/view/mainView/MainView.fxml
+</message>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>constructLoadException</method>
+      <line>2625</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2603</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2466</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2435</line>
+    </frame>
+    <frame>
+      <class>etf.gui.main.MainApp</class>
+      <method>start</method>
+      <line>42</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.LauncherImpl</class>
+      <method>lambda$launchApplication1$9</method>
+      <line>846</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runAndWait$12</method>
+      <line>455</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$10</method>
+      <line>428</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>389</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.application.PlatformImpl</class>
+      <method>lambda$runLater$11</method>
+      <line>427</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.InvokeLaterDispatcher$Future</class>
+      <method>run</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.win.WinApplication</class>
+      <method>lambda$runLoop$3</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>835</line>
+    </frame>
+  </exception>
+</record>
